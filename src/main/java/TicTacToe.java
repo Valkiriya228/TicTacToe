@@ -12,7 +12,6 @@ public class TicTacToe {
     }
 
     // Ход игрока
-//TODO() сделать проверку на пустую клетку
     public void playerMove(int i, int j, boolean sideOfForse) {
         if (i < n && j < n && i >= 0 && j >= 0) {
             if (sideOfForse)
@@ -90,9 +89,12 @@ public class TicTacToe {
         String result3 = "Самая длинная последовательность " + sym + " по диагонали";
 
 
-        if ((max2 > max3) && (max2 > max1)) return result2;
-        if ((max1 > max2) && (max1 > max3)) return result1;
-        else return result3;
+        if ((max2 > max3) && (max2 > max1))
+            return result2;
+        if ((max1 > max2) && (max1 > max3))
+            return result1;
+        else
+            return result3;
     }
 
 
