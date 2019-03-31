@@ -108,18 +108,12 @@ public class TicTacToeTest {
         field.playerMove(2, 1, false);
         field.playerMove(2, 2, true);
         System.out.println(field);
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в левой диагонали",
-                field.largestLengthOfLeftDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "1" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(false));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "3" + " в " + "1" + " горизонтали",
-                field.largestLengthOfHorizontal(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в " + "2" + " горизонтали",
-                field.largestLengthOfHorizontal(false));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в " + "2" + " вертикали",
-                field.largestLengthOfVertical(false));
+        assertEquals( 1,  field.largestLengthOfLeftDiagonal(true));
+        assertEquals(1, field.largestLengthOfRightDiagonal(false));
+        assertEquals(1, field.largestLengthOfRightDiagonal(true));
+        assertEquals(new TicTacToe.Pair(3,1), field.largestLengthOfHorizontal(true));
+        assertEquals(new TicTacToe.Pair(2,2), field.largestLengthOfHorizontal(false));
+        assertEquals(new TicTacToe.Pair(2,2), field.largestLengthOfVertical(false));
     }
 
     @Test
@@ -135,18 +129,12 @@ public class TicTacToeTest {
         field.playerMove(2, 1, false);
         field.playerMove(2, 2, true);
         System.out.println(field);
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в левой диагонали",
-                field.largestLengthOfLeftDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "1" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(false));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "3" + " в " + "1" + " горизонтали",
-                field.largestLengthOfHorizontal(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "3" + " в " + "2" + " горизонтали",
-                field.largestLengthOfHorizontal(false));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в " + "2" + " вертикали",
-                field.largestLengthOfVertical(false));
+        assertEquals(1, field.largestLengthOfLeftDiagonal(true));
+        assertEquals(1, field.largestLengthOfRightDiagonal(false));
+        assertEquals(1, field.largestLengthOfRightDiagonal(true));
+        assertEquals(new TicTacToe.Pair(3,1), field.largestLengthOfHorizontal(true));
+        assertEquals(new TicTacToe.Pair(3,2), field.largestLengthOfHorizontal(false));
+        assertEquals(new TicTacToe.Pair(2,2), field.largestLengthOfVertical(false));
     }
 
     @Test
@@ -162,18 +150,12 @@ public class TicTacToeTest {
         field.playerMove(2, 1, true);
         field.playerMove(2, 2, true);
         System.out.println(field);
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в левой диагонали",
-                field.largestLengthOfLeftDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "3" + " в " + "3" + " вертикали",
-                field.largestLengthOfVertical(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(false));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "2" + " в " + "3" + " горизонтали",
-                field.largestLengthOfHorizontal(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в " + "1" + " горизонтали",
-                field.largestLengthOfHorizontal(false));
+        assertEquals(1, field.largestLengthOfLeftDiagonal(true));
+        assertEquals(new TicTacToe.Pair(3,3), field.largestLengthOfVertical(true));
+        assertEquals(2, field.largestLengthOfRightDiagonal(false));
+        assertEquals(1, field.largestLengthOfRightDiagonal(true));
+        assertEquals(new TicTacToe.Pair(2,3), field.largestLengthOfHorizontal(true));
+        assertEquals(new TicTacToe.Pair(2,1), field.largestLengthOfHorizontal(false));
     }
 
     @Test
@@ -196,18 +178,12 @@ public class TicTacToeTest {
         field.playerMove(3, 2, false);
         field.playerMove(3, 3, false);
         System.out.println(field);
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в левой диагонали",
-                field.largestLengthOfLeftDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "2" + " в " + "2" + " вертикали",
-                field.largestLengthOfVertical(true));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в левой диагонали",
-                field.largestLengthOfLeftDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "0" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(false));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "4" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "2" + " в " + "4" + " горизонтали",
-                field.largestLengthOfHorizontal(true));
+        assertEquals(1, field.largestLengthOfLeftDiagonal(true));
+        assertEquals(new TicTacToe.Pair(2,2), field.largestLengthOfVertical(true));
+        assertEquals(1, field.largestLengthOfLeftDiagonal(true));
+        assertEquals(0, field.largestLengthOfRightDiagonal(false));
+        assertEquals(4, field.largestLengthOfRightDiagonal(true));
+        assertEquals(new TicTacToe.Pair(2,4), field.largestLengthOfHorizontal(true));
     }
 
     @Test
@@ -230,16 +206,11 @@ public class TicTacToeTest {
         field.playerMove(3, 2, true);
         field.playerMove(3, 3, true);
         System.out.println(field);
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "3" + " в " + "4" + " вертикали",
-                field.largestLengthOfVertical(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в " + "1" + " вертикали",
-                field.largestLengthOfVertical(false));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в " + "3" + " горизонтали",
-                field.largestLengthOfHorizontal(false));
-        assertEquals("Самая длинная последовательность " + "X" + " = " + "1" + " в левой диагонали",
-                field.largestLengthOfLeftDiagonal(true));
-        assertEquals("Самая длинная последовательность " + "O" + " = " + "2" + " в правой диагонали",
-                field.largestLengthOfRightDiagonal(false));
+        assertEquals(new TicTacToe.Pair(3,4), field.largestLengthOfVertical(true));
+        assertEquals(new TicTacToe.Pair(2,1), field.largestLengthOfVertical(false));
+        assertEquals(new TicTacToe.Pair(2,3), field.largestLengthOfHorizontal(false));
+        assertEquals(1, field.largestLengthOfLeftDiagonal(true));
+        assertEquals(2, field.largestLengthOfRightDiagonal(false));
 
     }
 }

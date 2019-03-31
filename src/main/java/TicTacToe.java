@@ -1,4 +1,6 @@
+
 import java.lang.IllegalArgumentException;
+
 
 
 public class TicTacToe {
@@ -20,8 +22,7 @@ public class TicTacToe {
                 field[i][j] = 'X';
             else
                 field[i][j] = 'O';
-        }
-        else throw new IllegalArgumentException();
+        } else throw new IllegalArgumentException();
     }
 
     // Очистка клетки
@@ -32,7 +33,7 @@ public class TicTacToe {
     }
 
 
-    public String largestLengthOfHorizontal(boolean side) {
+    public Pair<Integer, Integer> largestLengthOfHorizontal(boolean side) {
         char sym;
 
         if (side)
@@ -43,7 +44,6 @@ public class TicTacToe {
 // Самая длинная последовательность по горизонтали
         int max = -1;
         int num = -1;
-        String result;
         int k = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -61,13 +61,12 @@ public class TicTacToe {
             k = 0;
         }
         num++;
-        return result = "Самая длинная последовательность " + sym + " = " + max + " в " + num + " горизонтали";
+        Pair<Integer, Integer> pair = new Pair<Integer, Integer>(max, num);
+        return pair;
     }
 
 
-
-
-    public String largestLengthOfVertical(boolean side) {
+    public Pair<Integer, Integer> largestLengthOfVertical(boolean side) {
         char sym;
 
         if (side)
@@ -95,12 +94,12 @@ public class TicTacToe {
             k = 0;
         }
         num++;
-        return result = "Самая длинная последовательность " + sym + " = " + max + " в " + num + " вертикали";
+        Pair<Integer, Integer> pair = new Pair<Integer, Integer>(max, num);
+        return pair;
     }
 
 
-
-    public String largestLengthOfLeftDiagonal(boolean side) {
+    public int largestLengthOfLeftDiagonal(boolean side) {
         char sym;
 
         if (side)
@@ -109,7 +108,6 @@ public class TicTacToe {
             sym = 'O';
 // Самая длинная последовательность по диагонали
         int max = -1;
-        String result;
         int k1 = 0;
         for (int i = 0; i < n; i++) {
             if ((field[i][i] == sym) && (i == n - 1)) k1++;
@@ -120,11 +118,11 @@ public class TicTacToe {
             }
             if (k1 > max) max = k1;
         }
-        return result = "Самая длинная последовательность " + sym + " = " + max + " в левой диагонали";
+        return max;
     }
 
 
-    public String largestLengthOfRightDiagonal(boolean side) {
+    public int largestLengthOfRightDiagonal(boolean side) {
         char sym;
 
         if (side)
@@ -132,21 +130,20 @@ public class TicTacToe {
         else
             sym = 'O';
         int k2 = 0;
-        String result;
         int max = -1;
         for (int i = 0; i < n; i++) {
             if ((field[i][n - i - 1] == sym) && (i == n - 1)) k2++;
             else {
-            if ((field[i][n - i - 1] == sym) && (field[i][n - i - 1] == field[i + 1][n - i - 2])) k2++;
+                if ((field[i][n - i - 1] == sym) && (field[i][n - i - 1] == field[i + 1][n - i - 2])) k2++;
                 else if (field[i][n - i - 1] == sym) k2++;
                 else if (field[i][n - i - 1] != sym) k2 = 0;
             }
-            if (k2 > max) max =k2;
+            if (k2 > max) max = k2;
         }
-       return result = "Самая длинная последовательность " + sym + " = " + max + " в правой диагонали";
+
+
+        return max;
     }
-
-
 
 
     public String toString() {
@@ -158,5 +155,26 @@ public class TicTacToe {
             bldr.append("\n");
         }
         return bldr.toString();
+    }
+
+
+    // F - максимальная длина крестиков/ноликов;
+    // S - номер вертикали/горизонтали, в которой расположена максимальная длина крестиков/ноликов
+    public static class Pair<F, S> extends java.util.AbstractMap.SimpleImmutableEntry<F, S> {
+        public Pair(F f, S s) {
+            super(f, s);
+        }
+
+        public F getFirst() {
+            return getKey();
+        }
+
+        public S getSecond() {
+            return getValue();
+        }
+
+        public String toString() {
+            return "[" + getKey() + "," + getValue() + "]";
+        }
     }
 }
