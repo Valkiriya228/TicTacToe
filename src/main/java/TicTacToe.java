@@ -1,8 +1,4 @@
 
-import java.lang.IllegalArgumentException;
-
-
-
 public class TicTacToe {
     int n;
     char[][] field;
