@@ -22,7 +22,7 @@ public class TicTacToe {
                 field[i][j] = 'X';
             else
                 field[i][j] = 'O';
-        } else throw new IllegalArgumentException();
+        } else throw new IndexOutOfBoundsException();
     }
 
     // Очистка клетки

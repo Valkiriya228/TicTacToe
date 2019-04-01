@@ -1,6 +1,8 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class TicTacToeTest {
     @Test
     public void playerMove() {
@@ -69,7 +71,6 @@ public class TicTacToeTest {
         field.clearCell(3, 3);
         field.clearCell(1, 1);
         field.clearCell(1, 2);
-        System.out.println(field);
         assertEquals("  X X   \n" +
                 "        \n" +
                 "X     X \n" + "  X X   \n", field.toString());
@@ -78,20 +79,13 @@ public class TicTacToeTest {
     @Test
     public void playerMove1() {
         TicTacToe field = new TicTacToe(3);
-        field.playerMove(0, 0, true);
-        field.playerMove(0, 1, true);
-        field.playerMove(0, 2, true);
-        field.playerMove(1, 0, false);
-        field.playerMove(1, 1, false);
-        field.playerMove(1, 2, true);
-        field.playerMove(2, 0, true);
-        field.playerMove(2, 1, false);
-        field.playerMove(2, 2, true);
-        field.playerMove(3, 1, true); //заполнила клетку с выходом за пределы массива дабы проверить бросание исключения
-        field.clearCell(3, 1); //стёрла эту же клетку
-        assertEquals("  X X   \n" +
-                "        \n" +
-                "X     X \n" + "  X X   \n", field.toString());
+        boolean fl = false;
+        try {
+            field.playerMove(3, 0, true);
+        } catch (IndexOutOfBoundsException e) {
+            fl = true;
+        }
+        assertTrue(fl);
     }
 
 
@@ -107,7 +101,6 @@ public class TicTacToeTest {
         field.playerMove(2, 0, true);
         field.playerMove(2, 1, false);
         field.playerMove(2, 2, true);
-        System.out.println(field);
         assertEquals( 1,  field.largestLengthOfLeftDiagonal(true));
         assertEquals(1, field.largestLengthOfRightDiagonal(false));
         assertEquals(1, field.largestLengthOfRightDiagonal(true));
@@ -128,7 +121,6 @@ public class TicTacToeTest {
         field.playerMove(2, 0, true);
         field.playerMove(2, 1, false);
         field.playerMove(2, 2, true);
-        System.out.println(field);
         assertEquals(1, field.largestLengthOfLeftDiagonal(true));
         assertEquals(1, field.largestLengthOfRightDiagonal(false));
         assertEquals(1, field.largestLengthOfRightDiagonal(true));
@@ -149,7 +141,6 @@ public class TicTacToeTest {
         field.playerMove(2, 0, false);
         field.playerMove(2, 1, true);
         field.playerMove(2, 2, true);
-        System.out.println(field);
         assertEquals(1, field.largestLengthOfLeftDiagonal(true));
         assertEquals(new TicTacToe.Pair(3,3), field.largestLengthOfVertical(true));
         assertEquals(2, field.largestLengthOfRightDiagonal(false));
@@ -177,7 +168,6 @@ public class TicTacToeTest {
         field.playerMove(3, 1, true);
         field.playerMove(3, 2, false);
         field.playerMove(3, 3, false);
-        System.out.println(field);
         assertEquals(1, field.largestLengthOfLeftDiagonal(true));
         assertEquals(new TicTacToe.Pair(2,2), field.largestLengthOfVertical(true));
         assertEquals(1, field.largestLengthOfLeftDiagonal(true));
@@ -205,7 +195,6 @@ public class TicTacToeTest {
         field.playerMove(3, 1, true);
         field.playerMove(3, 2, true);
         field.playerMove(3, 3, true);
-        System.out.println(field);
         assertEquals(new TicTacToe.Pair(3,4), field.largestLengthOfVertical(true));
         assertEquals(new TicTacToe.Pair(2,1), field.largestLengthOfVertical(false));
         assertEquals(new TicTacToe.Pair(2,3), field.largestLengthOfHorizontal(false));
